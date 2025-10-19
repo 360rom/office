@@ -1,0 +1,2235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="全国计算机二级MS Office高级应用与设计考试备考指南，包含考试说明、题型分布、备考资料下载、考试内容详解、备考策略及常见问题解答，助您顺利通过考试。">
+  <meta name="keywords" content="计算机二级, MS Office, 计算机二级考试, 备考指南, Office高级应用, 计算机等级考试">
+  <title>中国计算机二级MS Office - China Computer Grade 2 MS Office</title>
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/check.css">
+  <style>
+    :root {
+      --primary: #165DFF;
+      --primary-dark: #0A4BDE;
+      --secondary: #FF7D00;
+      --neutral-100: #F5F7FA;
+      --neutral-200: #E5E6EB;
+      --neutral-300: #C9CDD4;
+      --neutral-400: #86909C;
+      --neutral-500: #4E5969;
+      --neutral-600: #272E3B;
+      --neutral-700: #1D2129;
+      --white: #FFFFFF;
+      --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      background-color: var(--neutral-100);
+      color: var(--neutral-700);
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+      padding-bottom: 80px;
+    }
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* 通用样式 */
+    .section {
+      padding: 60px 0;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 700;
+      color: var(--neutral-700);
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .section-subtitle {
+      color: var(--neutral-500);
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 40px;
+    }
+
+    .section-divider {
+      width: 80px;
+      height: 3px;
+      background-color: var(--primary);
+      margin: 0 auto 40px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+      border: none;
+      font-size: 16px;
+    }
+
+    .btn-primary {
+      background-color: var(--white);
+      color: var(--primary);
+      box-shadow: 0 4px 12px rgba(22, 93, 255, 0.2);
+    }
+
+    .btn-primary:hover {
+      background-color: var(--neutral-100);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(22, 93, 255, 0.25);
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .btn-outline:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .card {
+      background-color: var(--white);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+      overflow: hidden;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* 导航栏 */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background-color: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(4px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      transition: var(--transition);
+      padding: 16px 0;
+    }
+
+    .navbar.scrolled {
+      padding: 8px 0;
+      box-shadow: var(--shadow);
+    }
+
+    .navbar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+
+    .logo-icon {
+      color: var(--primary);
+      font-size: 24px;
+    }
+
+    .logo-text {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--neutral-700);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+    }
+
+    .nav-link {
+      color: var(--neutral-600);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .nav-link:hover {
+      color: var(--primary);
+    }
+
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--neutral-700);
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    .mobile-menu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: var(--white);
+      border-top: 1px solid var(--neutral-200);
+      padding: 15px 0;
+    }
+
+    .mobile-menu.active {
+      display: block;
+    }
+
+    .mobile-nav-link {
+      display: block;
+      padding: 10px 20px;
+      color: var(--neutral-600);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .mobile-nav-link:hover {
+      background-color: var(--neutral-100);
+      color: var(--primary);
+    }
+
+    /* 英雄区域 */
+    .hero {
+      padding: 120px 0 60px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      position: relative;
+      margin-top: 60px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 20px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-description {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      opacity: 0.9;
+      margin-bottom: 30px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .wave-divider {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 60px;
+    }
+
+    .wave-divider svg {
+      width: 100%;
+      height: 100%;
+      fill: var(--neutral-100);
+    }
+
+    /* 考试说明 */
+    .exam-info {
+      background-color: var(--white);
+    }
+
+    .exam-info-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    @media (min-width: 768px) {
+      .exam-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .exam-info-card {
+      padding: 30px;
+    }
+
+    .exam-info-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--neutral-700);
+    }
+
+    .exam-info-icon {
+      color: var(--primary);
+      font-size: 24px;
+    }
+
+    .exam-list {
+      list-style: none;
+    }
+
+    .exam-list li {
+      display: flex;
+      margin-bottom: 15px;
+    }
+
+    .exam-list-term {
+      flex: 1;
+      font-weight: 500;
+      color: var(--neutral-600);
+    }
+
+    .exam-list-def {
+      flex: 2;
+      color: var(--neutral-700);
+    }
+
+    .chart-container {
+      height: 300px;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .exam-types {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .exam-type {
+      padding: 15px;
+      background-color: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .exam-type-title {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--neutral-700);
+    }
+
+    .exam-type-desc {
+      font-size: 14px;
+      color: var(--neutral-600);
+    }
+
+    /* 资料下载 */
+    .materials {
+      background-color: var(--neutral-100);
+    }
+
+    .materials-section {
+      margin-bottom: 40px;
+    }
+
+    .materials-section-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      color: var(--neutral-700);
+    }
+
+    .materials-section-icon {
+      color: var(--primary);
+      font-size: 24px;
+    }
+
+    .materials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 576px) {
+      .materials-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 992px) {
+      .materials-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .material-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .material-icon-container {
+      height: 140px;
+      background-color: rgba(22, 93, 255, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .material-icon {
+      color: var(--primary);
+      font-size: 72px;
+    }
+
+    .material-content {
+      padding: 20px;
+    }
+
+    .material-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--neutral-700);
+    }
+
+    .material-desc {
+      font-size: 14px;
+      color: var(--neutral-500);
+      margin-bottom: 15px;
+    }
+
+    .material-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: var(--transition);
+    }
+
+    .material-link:hover {
+      color: var(--primary-dark);
+    }
+
+    .materials-list {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .materials-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .materials-list-item {
+      padding: 20px;
+      display: flex;
+      gap: 15px;
+    }
+
+    .materials-list-icon-container {
+      width: 50px;
+      height: 50px;
+      background-color: rgba(22, 93, 255, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .materials-list-icon {
+      color: var(--primary);
+      font-size: 20px;
+    }
+
+    .materials-list-content {
+      flex: 1;
+    }
+
+    .materials-list-title {
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--neutral-700);
+    }
+
+    .materials-list-items {
+      font-size: 14px;
+      color: var(--neutral-600);
+    }
+
+    .materials-list-items li {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .materials-list-items i {
+      color: var(--primary);
+      font-size: 12px;
+    }
+
+    /* 考试内容详解 */
+    .content {
+      background-color: var(--white);
+    }
+
+    .content-section {
+      margin-bottom: 50px;
+    }
+
+    .content-section-header {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .content-section-number {
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+    }
+
+    .content-section-title {
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--neutral-700);
+    }
+
+    .content-card {
+      padding: 30px;
+    }
+
+    .content-text {
+      margin-bottom: 30px;
+      color: var(--neutral-600);
+    }
+
+    .content-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .content-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .content-item {
+      padding: 20px;
+      background-color: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+
+    .content-item-title {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: var(--neutral-700);
+    }
+
+    .content-item-icon {
+      color: var(--primary);
+    }
+
+    .content-item-list {
+      font-size: 14px;
+      color: var(--neutral-600);
+      padding-left: 20px;
+    }
+
+    .content-item-list li {
+      margin-bottom: 8px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    @media (min-width: 768px) {
+      .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .skill-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .skill-header {
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .skill-title {
+      font-weight: 600;
+    }
+
+    .skill-score {
+      background-color: var(--white);
+      color: var(--primary);
+      padding: 3px 10px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .skill-content {
+      padding: 20px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .skill-desc {
+      font-size: 14px;
+      color: var(--neutral-600);
+      margin-bottom: 15px;
+    }
+
+    .skill-list {
+      font-size: 14px;
+      color: var(--neutral-700);
+      padding-left: 20px;
+      margin-bottom: 20px;
+      flex: 1;
+    }
+
+    .skill-list li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .skill-list i {
+      color: var(--primary);
+      margin-top: 5px;
+    }
+
+    .skill-tip {
+      font-size: 12px;
+      color: var(--neutral-500);
+      padding-top: 15px;
+      border-top: 1px solid var(--neutral-200);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .skill-tip i {
+      color: var(--secondary);
+    }
+
+    /* 备考策略 */
+    .strategy {
+      background-color: var(--neutral-100);
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      background-color: rgba(22, 93, 255, 0.2);
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -1.5px;
+    }
+
+    .timeline-item {
+      padding: 10px 40px;
+      position: relative;
+      width: 50%;
+      box-sizing: border-box;
+      margin-bottom: 30px;
+    }
+
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: var(--primary);
+      border: 4px solid var(--primary);
+      border-radius: 50%;
+      top: 15px;
+      z-index: 1;
+    }
+
+    .timeline-item:nth-child(odd)::after {
+      right: -10px;
+    }
+
+    .timeline-item:nth-child(even)::after {
+      left: -10px;
+    }
+
+    .timeline-content {
+      padding: 20px;
+    }
+
+    .timeline-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--neutral-700);
+    }
+
+    .timeline-desc {
+      color: var(--neutral-600);
+      margin-bottom: 15px;
+    }
+
+    .timeline-list {
+      font-size: 14px;
+      color: var(--neutral-500);
+      list-style: none;
+    }
+
+    .timeline-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .timeline-list i {
+      color: var(--primary);
+    }
+
+    .timeline-item:nth-child(even) .timeline-list {
+      margin-left: 0;
+    }
+
+    /* 常见问题 */
+    .faq {
+      background-color: var(--white);
+    }
+
+    .faq-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      margin-bottom: 15px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .faq-toggle {
+      width: 100%;
+      background-color: var(--neutral-100);
+      border: none;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+      color: var(--neutral-700);
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .faq-icon {
+      color: var(--primary);
+      transition: var(--transition);
+    }
+
+    .faq-icon.rotate {
+      transform: rotate(180deg);
+    }
+
+    .faq-content {
+      background-color: var(--neutral-100);
+      padding: 0 20px;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    }
+
+    .faq-content.active {
+      padding: 0 20px 20px;
+      max-height: 500px;
+    }
+
+    .faq-text {
+      color: var(--neutral-600);
+    }
+
+    /* 行动召唤 */
+    .cta {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+
+    .cta-desc {
+      max-width: 600px;
+      margin: 0 auto 30px;
+      opacity: 0.9;
+    }
+
+    .cta-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    /* 页脚 */
+    .footer {
+      background-color: var(--neutral-700);
+      color: var(--white);
+      padding: 32px 0 16px;
+      /* 缩减上下内边距 */
+      min-height: unset;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+      margin-bottom: 24px;
+    }
+    @media (min-width: 768px) {
+      .footer-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    .footer-column-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .footer-links {
+      list-style: none;
+    }
+    .footer-link {
+      margin-bottom: 8px;
+    }
+    .footer-link a {
+      color: var(--neutral-300);
+      text-decoration: none;
+      transition: var(--transition);
+      font-size: 14px;
+    }
+    .footer-link a:hover {
+      color: var(--white);
+    }
+    .footer-text {
+      color: var(--neutral-300);
+      font-size: 14px;
+    }
+    .footer-bottom {
+      border-top: 1px solid var(--neutral-600);
+      padding-top: 16px;
+      text-align: center;
+      color: var(--neutral-400);
+      font-size: 14px;
+    }
+    .footer-bottom p {
+      margin-bottom: 6px;
+    }
+    /* 保证页脚紧贴底部，无多余空白 */
+    html, body {
+      height: 100%;
+    }
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 0;
+    }
+    .footer {
+      margin-top: auto;
+    }
+
+    /* 返回顶部按钮 */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      /* 移除 box-shadow: 0 4px 12px rgba(22, 93, 255, 0.3); */
+      /* 移除黑色边框 */
+      border: none;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: var(--transition);
+      z-index: 90;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* 响应式调整 */
+    @media (max-width: 992px) {
+      .timeline::after { left: 31px; }
+      .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+      .timeline-item:nth-child(even) { left: 0; }
+      .timeline-item::after { left: 21px; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .menu-toggle { display: block; }
+      .hero { padding-top: 100px; }
+      .section { padding: 40px 0; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 576px) {
+      .hero-title { font-size: 2rem; }
+      .btn { width: 100%; }
+      .overview-grid,
+      .materials-grid,
+      .skills-grid,
+      .content-grid,
+      .materials-list { grid-template-columns: 1fr; }
+      .section { padding: 20px 0; }
+    }
+  </style>
+  <style>
+    .collapsible-container {
+      gap: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    .collapsible-item {
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      border: none;
+    }
+    .collapsible-header {
+      width: 100%;
+      background-color: var(--white);
+      border: none;
+      padding: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      transition: var(--transition);
+      min-height: 56px;
+    }
+    .collapsible-header:hover {
+      background-color: var(--neutral-100);
+    }
+    .collapsible-header h4 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--neutral-700);
+      margin: 0;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding-left: 18px;
+    }
+    .collapsible-icon {
+      margin-right: 20px;
+      color: var(--primary);
+      transition: transform 0.3s ease;
+      font-size: 1.5em;
+    }
+    .collapsible-icon.rotate {
+      transform: rotate(180deg);
+    }
+    .collapsible-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .collapsible-content.active {
+      max-height: 2000px;
+    }
+    /* 右下角浮动按钮样式 */
+    .float-button {
+      position: fixed;
+      right: 20px;
+      z-index: 100;
+      width: 40px;
+      height: 40px;
+      transition: width 0.3s;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+    .float-button.active,
+    .float-button:hover {
+      width: 160px;
+    }
+    .float-btn {
+      width: 40px;
+      height: 40px;
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 2;
+    }
+    .float-content {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      padding-right: 45px;
+      background-color: var(--primary);
+      color: white;
+      border-radius: 20px;
+      white-space: nowrap;
+      z-index: 1;
+      transition: opacity 0.3s;
+      opacity: 0;
+      font-size: 15px;
+    }
+    .float-button.active .float-content,
+    .float-button:hover .float-content {
+      opacity: 1;
+    }
+    .wechat-qr-container {
+      position: fixed;
+      right: 20px;
+      bottom: 80px;
+      z-index: 999;
+      display: none;
+      opacity: 0;
+      transition: opacity 0.3s, transform 0.3s;
+      transform-origin: bottom right;
+      transform: scale(0.95);
+    }
+    .wechat-qr-container .wechat-qr-content {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      padding: 10px 10px 5px 10px;
+      text-align: center;
+    }
+    .wechat-qr-image {
+      width: 160px;
+      height: 160px;
+      border: 5px solid white;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      margin-bottom: 8px;
+    }
+    .wechat-qr-text {
+      font-size: 15px;
+      color: #165DFF;
+      margin-bottom: 2px;
+    }
+  </style>
+ 
+</head>
+
+<body>
+  <!-- 导航栏 -->
+  <header id="navbar" class="navbar">
+    <div class="container navbar-container">
+      <a href="#" class="logo">
+        <i class="fa fa-file-text-o logo-icon"></i>
+        <span class="logo-text">计算机二级MS Office</span>
+      </a>
+      
+      <!-- 桌面导航 -->
+      <nav class="nav-links">
+        <a href="#exam-info" class="nav-link">考试说明</a>
+        <a href="#materials" class="nav-link">资料下载</a>
+        <a href="#content" class="nav-link">考试内容</a>
+        <a href="#faq" class="nav-link">常见问题</a>
+      </nav>
+      
+      <!-- 移动端菜单按钮 -->
+      <button id="menu-toggle" class="menu-toggle">
+        <i class="fa fa-bars"></i>
+      </button>
+    </div>
+    
+    <!-- 移动端导航菜单 -->
+    <div id="mobile-menu" class="mobile-menu">
+      <a href="#exam-info" class="mobile-nav-link">考试说明</a>
+      <a href="#materials" class="mobile-nav-link">资料下载</a>
+      <a href="#content" class="mobile-nav-link">考试内容</a>
+      <a href="#faq" class="mobile-nav-link">常见问题</a>
+    </div>
+  </header>
+
+  <!-- 英雄区域 -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          全国计算机等级考试<br>二级MS Office高级应用与设计
+        </h1>
+        <p class="hero-description">
+          全面的备考指南，获取国家级技能证书，提升职场竞争力
+        </p>
+        <div class="hero-cta">
+          <a href="#materials" class="btn btn-primary">
+            <i class="fa fa-download mr-2"></i>获取备考资料
+          </a>
+          <a href="https://ncre.neea.edu.cn/" class="btn btn-outline" target="_blank">
+            <i class="fa fa-internet-explorer"></i>中国教育考试网
+          </a>
+        </div>
+      </div>
+    </div>
+    
+    <!-- 波浪形底部装饰 -->
+    <div class="wave-divider">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 100">
+        <path d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,100L1360,100C1280,100,1120,100,960,100C800,100,640,100,480,100C320,100,160,100,80,100L0,100Z"></path>
+      </svg>
+    </div>
+  </section>
+
+  <!-- 考试说明 -->
+  <section id="exam-info" class="section exam-info">
+    <div class="container">
+      <h2 class="section-title">考试说明</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">考试概述、题型分布；充分准备</p>
+      
+      <div class="exam-info-grid">
+        <!-- 考试基本信息 -->
+        <div class="card exam-info-card">
+          <h3 class="exam-info-title">
+            <i class="fa fa-list-alt exam-info-icon"></i>考试信息概述
+          </h3>
+          
+          <p class="overview-text" style="margin-bottom: 20px; color: var(--neutral-600);">
+            全国计算机等级考试（NCRE）二级MS Office高级应用与设计，是衡量人群，对Office办公软件，综合操控能力的技能体现；其在升学、就业可辅助证明。
+          </p>
+          
+          <ul class="exam-list">
+            <li>
+              <span class="exam-list-term">科目代码：</span>
+              <span class="exam-list-def">65（二级MS Office高级应用与设计）</span>
+            </li>
+            <li>
+              <span class="exam-list-term">考试形式：</span>
+              <span class="exam-list-def">无纸化，电脑机考</span>
+            </li>
+            <li>
+              <span class="exam-list-term">考试时长：</span>
+              <span class="exam-list-def">120分钟（2小时）</span>
+            </li>
+            <li>
+              <span class="exam-list-term">合格标准：</span>
+              <span class="exam-list-def">总分100分；≥60分"合格"，≥85分"优秀"</span>
+            </li>
+            <li>
+              <span class="exam-list-term">考试环境：</span>
+              <span class="exam-list-def">Microsoft Office 2016</span>
+            </li>
+            <li>
+              <span class="exam-list-term">组织单位：</span>
+              <span class="exam-list-def">教育部教育考试院</span>
+            </li>
+            <li>
+              <span class="exam-list-term">考试频次：</span>
+              <span class="exam-list-def">每年2次（3月下旬、9月下旬）</span>
+            </li>
+            <li>
+              <span class="exam-list-term">报名时间：</span>
+              <span class="exam-list-def">通常在考试前2-3个月进行</span>
+            </li>
+          </ul>
+        </div>
+        
+        <!-- 题型与分值分布 -->
+        <div class="card exam-info-card">
+          <h3 class="exam-info-title">
+            <i class="fa fa-pie-chart exam-info-icon"></i>题型与分值分布
+          </h3>
+          
+          <div class="chart-container">
+            <!-- 动态圆盘拼图，分值写入，颜色四种 -->
+            <svg width="220" height="220" viewBox="0 0 220 220" style="display:block;margin:0 auto;">
+              <!-- 选择题 20分 -->
+              <path d="
+                M110,110
+                L110,10
+                A100,100 0 0,1 191.9615,48.0385
+                Z"
+                fill="#165DFF"></path>
+              <!-- Word 30分 -->
+              <path d="
+                M110,110
+                L191.9615,48.0385
+                A100,100 0 0,1 191.9615,171.9615
+                Z"
+                fill="#36CFC9"></path>
+              <!-- Excel 30分 -->
+              <path d="
+                M110,110
+                L191.9615,171.9615
+                A100,100 0 0,1 28.0385,171.9615
+                Z"
+                fill="#722ED1"></path>
+              <!-- PPT 20% -->
+              <path d="
+                M110,110
+                L28.0385,171.9615
+                A100,100 0 0,1 28.0385,48.0385
+                Z"
+                fill="#FF7D00"></path>
+              <!-- 中心圆 -->
+              <circle cx="110" cy="110" r="60" fill="#fff"></circle>
+              <!-- 分值文本 -->
+              <text x="110" y="105" text-anchor="middle" font-size="32" font-weight="bold" fill="#165DFF" dominant-baseline="middle">100</text>
+              <text x="110" y="135" text-anchor="middle" font-size="14" fill="#86909C" dominant-baseline="middle">总分</text>
+            </svg>
+            <!-- 图例 -->
+            <div style="display:flex;justify-content:center;gap:18px;margin-top:10px;">
+              <div style="display:flex;align-items:center;gap:6px;">
+                <span style="display:inline-block;width:16px;height:16px;background:#165DFF;border-radius:3px;"></span>
+                <span style="font-size:13px;color:#4E5969;">选择题 20分</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;">
+                <span style="display:inline-block;width:16px;height:16px;background:#36CFC9;border-radius:3px;"></span>
+                <span style="font-size:13px;color:#4E5969;">Word 30分</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;">
+                <span style="display:inline-block;width:16px;height:16px;background:#722ED1;border-radius:3px;"></span>
+                <span style="font-size:13px;color:#4E5969;">Excel 30分</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;">
+                <span style="display:inline-block;width:16px;height:16px;background:#FF7D00;border-radius:3px;"></span>
+                <span style="font-size:13px;color:#4E5969;">PPT 20分</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="exam-types">
+            <div class="exam-type">
+              <h4 class="exam-type-title">选择题（20分）</h4>
+              <p class="exam-type-desc">共20题，考查计算机基础知识（计算机系统、网络、多媒体、信息安全、数据结构、操作系统等）</p>
+            </div>
+            
+            <div class="exam-type">
+              <h4 class="exam-type-title">操作题（80分）</h4>
+              <ul class="exam-type-desc" style="list-style-type: disc; padding-left: 20px;">
+                <li>Word高级应用（30分）：复杂文档排版、邮件合并、目录生成等</li>
+                <li>Excel高级应用（30分）：公式函数、数据透视表、图表分析等</li>
+                <li>PowerPoint高级应用（20分）：演示文稿设计、动画效果、放映设置等</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 资料下载 -->
+  <section id="materials" class="section">
+    <div class="container">
+      <h2 class="section-title">备考资料下载</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">官方、第三方优质资料，助力高效备考</p>
+      
+      <!-- 官方核心资料 -->
+      <div class="materials-section">
+        <h3 class="materials-section-title">
+          <i class="fa fa-certificate materials-section-icon"></i>官方资料（必下）
+        </h3>
+        
+        <div class="materials-grid">
+          <div class="card material-card">
+            <div class="material-icon-container">
+              <i class="fa fa-file-pdf-o material-icon"></i>
+            </div>
+            <div class="material-content">
+              <h4 class="material-title">入门教学</h4>
+              <p class="material-desc">零基础速学习</p>
+             <a id="download-1" href="" target="_blank" class="material-link">
+  下载 <i class="fa fa-arrow-right"></i>
+</a>
+
+            </div>
+          </div>
+          
+          <div class="card material-card">
+            <div class="material-icon-container">
+              <i class="fa fa-desktop material-icon"></i>
+            </div>
+            <div class="material-content">
+              <h4 class="material-title">模考软件</h4>
+              <p class="material-desc">模拟考试系统</p>
+              <a id="download-2" href="#" target="_blank" class="material-link">
+                下载 <i class="fa fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div class="card material-card">
+            <div class="material-icon-container">
+              <i class="fa fa-windows  material-icon"></i>
+            </div>
+            <div class="material-content">
+              <h4 class="material-title">Office套件</h4>
+              <p class="material-desc">Office办公软件（含windows操作系统）</p>
+              <a id="download-3" href="" target="_blank" class="material-link">
+                下载 <i class="fa fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+     <!-- 滑动验证弹窗 -->
+<div id="verify-modal" class="verify-modal">
+  <div class="verify-container">
+    <div class="verify-header">
+      <h3>请完成安全验证</h3>
+      <button id="close-verify" class="verify-close">&times;</button>
+    </div>
+    <div class="verify-content">
+      <div class="puzzle-container">
+        <div class="puzzle-image">
+          <img id="puzzle-img" src="" alt="验证图片">
+          <div id="puzzle-piece" class="puzzle-piece"></div>
+          <button id="refresh-puzzle" class="refresh-puzzle">
+            <i class="fa fa-refresh"></i>
+          </button>
+        </div>
+        <div class="slider-container">
+          <div id="slider-track" class="slider-track">
+            <div id="slider" class="slider">
+              <i class="fa fa-angle-right"></i>
+            </div>
+
+            <!-- 改动：将验证提示 放入滑轨内部 -->
+            <p id="verify-message" class="verify-message">右滑验证</p>
+
+          </div>
+        </div>
+      </div>
+
+     <!-- 新增：将 IP 显示移入滑动验证弹窗底部 -->
+      <div style="text-align:center; margin-top:12px; font-size:13px; color:var(--neutral-600);">
+        IP&nbsp;&nbsp;<span id="ipsb">正在获取...</span>
+      </div>
+    </div>
+  </div>
+</div>
+      <!-- 第三方优质资料 -->
+      <div class="collapsible-item" data-default-open="false">
+        <button class="collapsible-header">
+          <h4>
+            <i class="fa fa-history content-item-icon"></i>
+            第三方优质资料（可选辅助）
+          </h4>
+          <i class="fa fa-chevron-down collapsible-icon"></i>
+        </button>
+        <div class="collapsible-content">
+          <div class="materials-list">
+            <div class="card materials-list-item">
+              <div class="materials-list-icon-container">
+                <i class="fa fa-tasks materials-list-icon"></i>
+              </div>
+              <div class="materials-list-content">
+                <h4 class="materials-list-title">题库类</h4>
+                <ul class="materials-list-items">
+                  <li>
+                    <i class="fa fa-check-circle"></i>
+                    <span>未来教育二级MS Office题库</span>
+                  </li>
+                  <li>
+                    <i class="fa fa-check-circle"></i>
+                    <span>虎贲二级Office题库</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="card materials-list-item">
+              <div class="materials-list-icon-container">
+                <i class="fa fa-play-circle materials-list-icon"></i>
+              </div>
+              <div class="materials-list-content">
+                <h4 class="materials-list-title">视频课程</h4>
+                <ul class="materials-list-items">
+                  <li>
+                    <i class="fa fa-check-circle"></i>
+                    <span>B站：</span>
+                  </li>
+                  <li>
+                    <i class="fa fa-check-circle"></i>
+                    <span>中国大学MOOC：</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="card materials-list-item">
+              <div class="materials-list-icon-container">
+                <i class="fa fa-thumb-tack content-item-icon "></i>
+              </div>
+              <div class="materials-list-content">
+                <h4 class="materials-list-title">高频考点资料</h4>
+                <ul class="materials-list-items">
+                  <li>
+                    <i class="fa fa-check-circle"></i>
+                    <span>选择题必背</span>
+                  </li>
+                  <li>
+                    <i class="fa fa-check-circle"></i>
+                    <span>Office快捷键汇总（提升答题速度）</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="card materials-list-item">
+              <div class="materials-list-icon-container">
+                <i class="fa fa-mobile materials-list-icon"></i>
+              </div>
+              <div class="materials-list-content">
+                <h4 class="materials-list-title">移动端资源</h4>
+                <ul class="materials-list-items">
+                  <li>
+                    <i class="fa fa-check-circle"></i>
+                    <span>APP</span>
+                  </li>
+                  <li>
+                    <i class="fa fa-check-circle"></i>
+                    <span>小程序/网页</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- 考试内容详解 -->
+  <section id="content" class="section content">
+    <div class="container">
+      <h2 class="section-title">考试内容详解</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">重点突破、掌握关键、备考策略</p>
+      
+      <div class="collapsible-container">
+        <!-- 选择题部分 -->
+        <div class="collapsible-item" data-default-open="false">
+          <button class="collapsible-header">
+            <h4>
+              <i class="fa fa-check-square-o content-item-icon"></i>
+              选择题：抓重点，忌深钻
+            </h4>
+            <i class="fa fa-chevron-down collapsible-icon"></i>
+            
+          </button>
+          <div class="collapsible-content">
+            <div class="content-section">
+              <div class="content-section-header" style="display:none"></div>
+              <div class="card content-card">
+                <p class="content-text">选择题考查"广度"而非"深度"，无需掌握复杂理论，重点记以下模块：</p>
+                
+                <div class="content-grid">
+                  <div class="content-item">
+                    <h4 class="content-item-title">
+                      <i class="fa fa-desktop content-item-icon"></i>计算机系统
+                    </h4>
+                    <ul class="content-item-list">
+                      <li>硬件（CPU、内存、硬盘的功能）</li>
+                      <li>软件（系统软件vs应用软件）</li>
+                      <li>操作系统基本概念</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="content-item">
+                    <h4 class="content-item-title">
+                      <i class="fa fa-wifi content-item-icon"></i>网络基础
+                    </h4>
+                    <ul class="content-item-list">
+                      <li>IP地址格式（如IPv4为"点分十进制"）</li>
+                      <li>HTTP（超文本传输协议）</li>
+                      <li>FTP（文件传输协议）</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="content-item">
+                    <h4 class="content-item-title">
+                      <i class="fa fa-shield content-item-icon"></i>信息安全
+                    </h4>
+                    <ul class="content-item-list">
+                      <li>病毒/木马的区别</li>
+                      <li>防火墙的作用</li>
+                      <li>数据备份的重要性</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="content-item">
+                    <h4 class="content-item-title">
+                      <i class="fa fa-file-text content-item-icon"></i>Office基础
+                    </h4>
+                    <ul class="content-item-list">
+                      <li>Office各组件的基本功能</li>
+                      <li>文件格式（.docx, .xlsx, .pptx等）</li>
+                      <li>常见操作界面元素</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--neutral-200);">
+                  <h4 class="content-item-title">
+                    <i class="fa fa-lightbulb-o content-item-icon"></i>备考策略
+                  </h4>
+                  <ul class="content-item-list">
+                    <li>碎片时间，刷题；重点记忆高频考点</li>
+                    <li>答题时间，控制在10-15分钟内，不要过多计较</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Word部分 -->
+        <div class="collapsible-item" data-default-open="false">
+          <button class="collapsible-header">
+            <h4>
+              <i class="fa fa-file-word-o content-item-icon"></i>
+              Word高级应用：格式为王，细节决定分数
+            </h4>
+            <i class="fa fa-chevron-down collapsible-icon"></i>
+          </button>
+          <div class="collapsible-content">
+            <div class="content-section">
+              <div class="content-section-header" style="display:none"></div>
+              <div class="card content-card">
+                <p class="content-text">Word占30分，是最容易得分的模块，重点掌握排版规范与高效操作：</p>
+                
+                <div class="skills-grid">
+                  <div class="card skill-card">
+                    <div class="skill-header">
+                      <span class="skill-title">文档格式设置</span>
+                      <span class="skill-score">10分</span>
+                    </div>
+                    <div class="skill-content">
+                      <p class="skill-desc">包括字体、段落、样式、页眉页脚、页码等基础格式设置</p>
+                      <ul class="skill-list">
+                        <li><i class="fa fa-angle-right"></i>使用"样式"统一文档格式（必考点）</li>
+                        <li><i class="fa fa-angle-right"></i>分节符设置不同页眉页脚</li>
+                        <li><i class="fa fa-angle-right"></i>页码格式与起始页码设置</li>
+                      </ul>
+                      <div class="skill-tip">
+                        <i class="fa fa-exclamation-circle"></i>
+                        <span>技巧：先设置样式，再排版，效率提升50%</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="card skill-card">
+                    <div class="skill-header">
+                      <span class="skill-title">高级排版功能</span>
+                      <span class="skill-score">12分</span>
+                    </div>
+                    <div class="skill-content">
+                      <p class="skill-desc">目录、题注、邮件合并等高级排版技巧</p>
+                      <ul class="skill-list">
+                        <li><i class="fa fa-angle-right"></i>题注与交叉引用（图表编号）</li>
+                        <li><i class="fa fa-angle-right"></i>目录自动生成与更新</li>
+                        <li><i class="fa fa-angle-right"></i>邮件合并（批量生成文档/信函）</li>
+                      </ul>
+                      <div class="skill-tip">
+                        <i class="fa fa-exclamation-circle"></i>
+                        <span>注意：邮件合并是高频难点，需单独练习3-5遍</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="card skill-card">
+                    <div class="skill-header">
+                      <span class="skill-title">图文混排</span>
+                      <span class="skill-score">8分</span>
+                    </div>
+                    <div class="skill-content">
+                      <p class="skill-desc">图片、形状、SmartArt等对象的排版技巧</p>
+                      <ul class="skill-list">
+                        <li><i class="fa fa-angle-right"></i>图片样式与文字环绕</li>
+                        <li><i class="fa fa-angle-right"></i>SmartArt图形设计与修改</li>
+                        <li><i class="fa fa-angle-right"></i>文本框与艺术字设置</li>
+                      </ul>
+                      <div class="skill-tip">
+                        <i class="fa fa-exclamation-circle"></i>
+                        <span>提示：注意图片与文字的对齐方式保持一致</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--neutral-200);">
+                  <h4 class="content-item-title">
+                    <i class="fa fa-lightbulb-o content-item-icon"></i>备考策略
+                  </h4>
+                  <ul class="content-item-list">
+                    <li>先掌握"样式"功能，这是Word的核心（能解决60%的格式问题）</li>
+                    <li>重点练习邮件合并、目录生成、分节符这三个高频考点</li>
+                    <li>建立"格式错误笔记"，记录自己常犯的格式问题</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Excel部分 -->
+        <div class="collapsible-item" data-default-open="false">
+          <button class="collapsible-header">
+            <h4>
+              <i class="fa fa-file-excel-o content-item-icon"></i>
+              Excel高级应用：函数为核，逻辑致胜
+            </h4>
+            <i class="fa fa-chevron-down collapsible-icon"></i>
+          </button>
+          <div class="collapsible-content">
+            <div class="content-section">
+              <div class="content-section-header" style="display:none"></div>
+              <div class="card content-card">
+                <p class="content-text">Excel占30分，是难度最高的模块，函数与数据分析，是得分关键：</p>
+                
+                <div class="skills-grid">
+                  <div class="card skill-card">
+                    <div class="skill-header">
+                      <span class="skill-title">公式与函数</span>
+                      <span class="skill-score">15分</span>
+                    </div>
+                    <div class="skill-content">
+                      <p class="skill-desc">Excel的核心功能，考查逻辑思维与应用能力</p>
+                      <ul class="skill-list">
+                        <li><i class="fa fa-angle-right"></i>常用函数：VLOOKUP、IF、SUMIFS、COUNTIFS</li>
+                        <li><i class="fa fa-angle-right"></i>日期函数：YEAR、MONTH、DAY、DATEDIF</li>
+                        <li><i class="fa fa-angle-right"></i>文本函数：LEFT、RIGHT、MID、CONCATENATE</li>
+                      </ul>
+                      <div class="skill-tip">
+                        <i class="fa fa-exclamation-circle"></i>
+                        <span>重点：VLOOKUP函数，必考题，精确匹配与模糊匹配</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="card skill-card">
+                    <div class="skill-header">
+                      <span class="skill-title">数据处理</span>
+                      <span class="skill-score">10分</span>
+                    </div>
+                    <div class="skill-content">
+                      <p class="skill-desc">数据的整理、分析与可视化呈现</p>
+                      <ul class="skill-list">
+                        <li><i class="fa fa-angle-right"></i>数据透视表（分组、计算字段）</li>
+                        <li><i class="fa fa-angle-right"></i>数据排序、筛选与分类汇总</li>
+                        <li><i class="fa fa-angle-right"></i>条件格式（数据条、色阶、图标集）</li>
+                      </ul>
+                      <div class="skill-tip">
+                        <i class="fa fa-exclamation-circle"></i>
+                        <span>技巧：数据透视表，是提分重点，掌握后可快速得分</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="card skill-card">
+                    <div class="skill-header">
+                      <span class="skill-title">图表与可视化</span>
+                      <span class="skill-score">5分</span>
+                    </div>
+                    <div class="skill-content">
+                      <p class="skill-desc">将数据，转化为直观图表的能力</p>
+                      <ul class="skill-list">
+                        <li><i class="fa fa-angle-right"></i>图表类型选择（柱形图、折线图、饼图等）</li>
+                        <li><i class="fa fa-angle-right"></i>图表元素设置（标题、图例、数据标签）</li>
+                        <li><i class="fa fa-angle-right"></i>图表样式美化与颜色搭配</li>
+                      </ul>
+                      <div class="skill-tip">
+                        <i class="fa fa-exclamation-circle"></i>
+                        <span>注意：图表标题，需包含数据源的关键信息</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--neutral-200);">
+                  <h4 class="content-item-title">
+                    <i class="fa fa-lightbulb-o content-item-icon"></i>备考策略
+                  </h4>
+                  <ul class="content-item-list">
+                    <li>函数学习顺序：先掌握IF、SUMIFS/COUNTIFS，再攻克VLOOKUP（占函数分的60%）</li>
+                    <li>建立"函数笔记"，记录每个函数的语法结构和典型案例</li>
+                    <li>数据透视表单独练习，确保能在5分钟内完成基本操作</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- PowerPoint部分 -->
+        <div class="collapsible-item" data-default-open="false">
+          <button class="collapsible-header">
+            <h4>
+              <i class="fa fa-file-powerpoint-o content-item-icon"></i>
+              PowerPoint高级应用：设计为表，逻辑为里
+            </h4>
+            <i class="fa fa-chevron-down collapsible-icon"></i>
+          </button>
+          <div class="collapsible-content">
+            <div class="content-section">
+              <div class="content-section-header" style="display:none"></div>
+              <div class="card content-card">
+                <p class="content-text">PowerPoint占20分，难度适中，注重设计感与演示效果：</p>
+                
+                <div class="skills-grid">
+                  <div class="card skill-card">
+                    <div class="skill-header">
+                      <span class="skill-title">幻灯片设计</span>
+                      <span class="skill-score">8分</span>
+                    </div>
+                    <div class="skill-content">
+                      <p class="skill-desc">整体风格、视觉呈现</p>
+                      <ul class="skill-list">
+                        <li><i class="fa fa-angle-right"></i>主题与版式设置</li>
+                        <li><i class="fa fa-angle-right"></i>母版设计（统一字体、LOGO、页脚）</li>
+                        <li><i class="fa fa-angle-right"></i>配色方案与字体规范</li>
+                      </ul>
+                      <div class="skill-tip">
+                        <i class="fa fa-exclamation-circle"></i>
+                        <span>技巧：修改幻灯片母版，可快速统一所有幻灯片格式</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="card skill-card">
+                    <div class="skill-header">
+                      <span class="skill-title">动画与切换</span>
+                      <span class="skill-score">6分</span>
+                    </div>
+                    <div class="skill-content">
+                      <p class="skill-desc">元素动画、过渡效果</p>
+                      <ul class="skill-list">
+                        <li><i class="fa fa-angle-right"></i>进入/退出/强调动画设置</li>
+                        <li><i class="fa fa-angle-right"></i>动画顺序与触发方式</li>
+                        <li><i class="fa fa-angle-right"></i>幻灯片切换效果与计时</li>
+                      </ul>
+                      <div class="skill-tip">
+                        <i class="fa fa-exclamation-circle"></i>
+                        <span>注意：动画不宜过多，保持简洁专业</span>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div class="card skill-card">
+                    <div class="skill-header">
+                      <span class="skill-title">放映与设置</span>
+                      <span class="skill-score">6分</span>
+                    </div>
+                    <div class="skill-content">
+                      <p class="skill-desc">放映控制、高级设置</p>
+                      <ul class="skill-list">
+                        <li><i class="fa fa-angle-right"></i>自定义放映与排练计时</li>
+                        <li><i class="fa fa-angle-right"></i>幻灯片放映方式设置</li>
+                        <li><i class="fa fa-angle-right"></i>隐藏幻灯片与批注</li>
+                      </ul>
+                      <div class="skill-tip">
+                        <i class="fa fa-exclamation-circle"></i>
+                        <span>重点：掌握"排练计时"功能，可自动播放幻灯片</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div style="margin-top: 25px; padding-top: 20px; border-top: 1px solid var(--neutral-200);">
+                  <h4 class="content-item-title">
+                    <i class="fa fa-lightbulb-o content-item-icon"></i>备考策略
+                  </h4>
+                  <ul class="content-item-list">
+                    <li>优先掌握幻灯片母版设计</li>
+                    <li>动画设置，注意"开始方式"排列顺序</li>
+                    <li>注重细节：如字体大小统一、对齐方式、图片清晰度等</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="collapsible-item" data-default-open="false">
+          <button class="collapsible-header">
+            <h4>
+              <i class="fa fa-history content-item-icon"></i>
+              整体备考规划与时间管理
+            </h4>
+            <i class="fa fa-chevron-down collapsible-icon"></i>
+          </button>
+          <div class="collapsible-content">
+            <div class="content-section">
+              <div class="content-section-header" style="display:none"></div>
+              <div class="card content-card">
+                <div class="content-grid">
+                  <div class="content-item">
+                    <h4 class="content-item-title">
+                      <i class="fa fa-clock-o content-item-icon"></i>考试时间分配
+                    </h4>
+                    <ul class="content-item-list">
+                      <li>选择题：10-15分钟</li>
+                      <li>Word操作题：25-30分钟</li>
+                      <li>Excel操作题：35-40分钟</li>
+                      <li>PowerPoint操作题：15-20分钟</li>
+                      <li>预留检查时间：5-10分钟</li>
+                    </ul>
+                  </div>
+                  
+                  <div class="content-item">
+                    <h4 class="content-item-title">
+                      <i class="fa fa-check-square-o content-item-icon"></i>高效备考技巧
+                    </h4>
+                    <ul class="content-item-list">
+                      <li>使用模拟软件练习，确保环境真实</li>
+                      <li>建立错题本，标注错误原因、解决方法</li>
+                      <li>记忆高频考点、快捷键；提升操作速度</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 常见问题FAQ -->
+  <section id="faq" class="section faq">
+    <div class="container">
+      <h2 class="section-title">常见问题</h2>
+      <div class="section-divider"></div>
+      <p class="section-subtitle">疑难解答，前后无忧</p>
+      
+      <div class="faq-container">
+        <div class="faq-item">
+          <button class="faq-toggle">
+            <span>报名入口在哪里？</span>
+            <i class="fa fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-content">
+            <p class="faq-text">参考「中国教育考试网」：https://ncre.neea.edu.cn</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-toggle">
+            <span>成绩何时查询/领取？</span>
+            <i class="fa fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-content">
+            <p class="faq-text">考试后1-2个月可查成绩；证书在成绩公布后3-4个月发放，可选择"邮寄"或"现场领取"</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-toggle">
+            <span>Office 版本需匹配吗？</span>
+            <i class="fa fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-content">
+            <p class="faq-text">建议一致；避免版本差异，影响操作</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-toggle">
+            <span>如何提高考试通过率？</span>
+            <i class="fa fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-content">
+            <p class="faq-text">建议：系统学习、掌握高频考点、熟练题型操作；多做模拟题</p>
+          </div>
+        </div>
+        
+        <div class="faq-item">
+          <button class="faq-toggle">
+            <span>备考资料从何获取？</span>
+            <i class="fa fa-chevron-down faq-icon"></i>
+          </button>
+          <div class="faq-content">
+            <p class="faq-text">留意相关附件或说明；有问题，请反馈</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3 class="footer-column-title">
+            <i class="fa fa-file-text-o"></i>MS Office
+          </h3>
+          <p class="footer-text">
+            计算机二级 MS Office考试备考指南
+          </p>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-column-title">官方资源</h3>
+          <ul class="footer-links">
+            <li class="footer-link"><a href="https://www.kdocs.cn/l/cuNACF1VFq2F"  target="_blank" >WPS资料</a></li>
+            <li class="footer-link"><a href="#exam-info">考试说明</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h3 class="footer-column-title">快速链接</h3>
+          <ul class="footer-links">
+            <li class="footer-link">
+              <a href="https://ncre.neea.edu.cn/" target="_blank">
+                <i class="fa fa-external-link mr-2 text-xs"></i>中国教育考试网
+              </a>
+            </li>
+            <li class="footer-link">
+              <a href="https://www.eduexam.cn/" target="_blank">
+                <i class="fa fa-external-link mr-2 text-xs"></i>未来教育官网
+              </a>
+            </li>
+             <li class="footer-link">
+              <a href="https://www.wyk8.com/" target="_blank">
+                <i class="fa fa-external-link mr-2 text-xs"></i>无忧考吧
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>© 版权所有 保留所有权利</p>
+        <p>内容仅供参考，请以官方信息为准</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- 微信公众号二维码弹窗 -->
+  <div class="wechat-qr-container" id="wechatQrContainer2">
+    <div class="wechat-qr-content">
+      <img src="https://cdn.jsdelivr.net/gh/wanderxx/oss@main/wx-gzh.png" alt="微信公众号" class="wechat-qr-image" loading="lazy">
+      <div class="wechat-qr-text">微信公众号</div>
+    </div>
+  </div>
+  <!-- 右下角浮动按钮：二维码 -->
+  <div class="float-button" id="qrButton2" style="bottom: 20px;">
+    <button class="float-btn" id="qrCodeBtn2" aria-label="显示微信公众号二维码" tabindex="0">
+      <i class="fa fa-qrcode"></i>
+    </button>
+    <div class="float-content">
+      <span class="float-text">微信公众号</span>
+    </div>
+  </div>
+  <!-- 右下角浮动按钮：返回顶部 -->
+  <div class="float-button" id="topButton2" style="bottom: 70px;">
+    <button class="float-btn" id="backToTop2" aria-label="返回顶部" tabindex="0">
+      <i class="fa fa-angle-up"></i>
+    </button>
+    <div class="float-content">
+      <span class="float-text">返回顶部</span>
+    </div>
+  </div>
+
+  <script>
+  // 导航栏滚动效果
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+  
+  // 移动端菜单切换
+
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+    const icon = menuToggle.querySelector('i');
+    if (mobileMenu.classList.contains('active')) {
+      icon.classList.remove('fa-bars');
+      icon.classList.add('fa-times');
+    } else {
+      icon.classList.remove('fa-times');
+      icon.classList.add('fa-bars');
+    }
+  });
+  
+  // 平滑滚动
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      // 关闭移动菜单（如果打开）
+      if (mobileMenu.classList.contains('active')) {
+        mobileMenu.classList.remove('active');
+        const icon = menuToggle.querySelector('i');
+        icon.classList.remove('fa-times');
+        icon.classList.add('fa-bars');
+      }
+      
+      const targetId = this.getAttribute('href');
+      const targetElement = document.querySelector(targetId);
+      
+      if (targetElement) {
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+  
+  // FAQ 折叠效果
+  const faqToggles = document.querySelectorAll('.faq-toggle');
+  faqToggles.forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const content = toggle.nextElementSibling;
+      const icon = toggle.querySelector('.faq-icon');
+      
+      // 切换当前FAQ的显示状态
+      content.classList.toggle('active');
+      icon.classList.toggle('rotate');
+      
+      // 关闭其他打开的FAQ
+      faqToggles.forEach(otherToggle => {
+        if (otherToggle !== toggle) {
+          const otherContent = otherToggle.nextElementSibling;
+         
+          const otherIcon = otherToggle.querySelector('.faq-icon');
+          
+          if (otherContent.classList.contains('active')) {
+            otherContent.classList.remove('active');
+            otherIcon.classList.remove('rotate');
+          }
+        }
+      });
+    });
+  });
+  
+  // 返回顶部按钮（兼容不同 id 的实现，避免空引用导致脚本中断）
+  const backToTopButton = document.getElementById('back-to-top') || document.getElementById('backToTop2') || document.getElementById('backToTop');
+  if (backToTopButton) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
+    });
+    
+    backToTopButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+
+  // 页面加载完成后的初始化
+  document.addEventListener('DOMContentLoaded', () => {
+    // 检查初始滚动位置以设置导航栏状态
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    }
+  });
+  </script>
+  <script>
+  // 初始化折叠列表
+  document.addEventListener('DOMContentLoaded', function() {
+    const collapsibleItems = document.querySelectorAll('.collapsible-item');
+    
+    collapsibleItems.forEach(item => {
+      const header = item.querySelector('.collapsible-header');
+      const content = item.querySelector('.collapsible-content');
+      const icon = item.querySelector('.collapsible-icon');
+      const defaultOpen = item.dataset.defaultOpen === 'true';
+      
+      // 设置默认状态
+      if (defaultOpen) {
+        content.classList.add('active');
+        icon.classList.add('rotate');
+      }
+      
+      // 添加点击事件
+      header.addEventListener('click', () => {
+        content.classList.toggle('active');
+        icon.classList.toggle('rotate');
+      });
+    });
+  });
+  // 右下角浮动按钮功能（仿index.html，增强可访问性）
+  (function () {
+    const qrButton = document.getElementById('qrButton2');
+    const topButton = document.getElementById('topButton2');
+    const qrBtn = document.getElementById('qrCodeBtn2');
+    const topBtn = document.getElementById('backToTop2');
+    const wechatQrContainer = document.getElementById('wechatQrContainer2');
+
+    function showQr() {
+      qrButton.classList.add('active');
+      wechatQrContainer.style.display = 'block';
+      wechatQrContainer.style.opacity = '1';
+    }
+    function hideQr() {
+      qrButton.classList.remove('active');
+      wechatQrContainer.style.opacity = '0';
+      setTimeout(() => {
+        wechatQrContainer.style.display = 'none';
+      }, 300);
+    }
+    qrBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (qrButton.classList.contains('active')) {
+        hideQr();
+      } else {
+        showQr();
+      }
+    });
+    qrBtn.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        qrBtn.click();
+      }
+    });
+    qrButton.addEventListener('mouseenter', function () {
+      if (!qrButton.classList.contains('active')) showQr();
+    });
+    qrButton.addEventListener('mouseleave', function () {
+      hideQr();
+    });
+    topBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (!topButton.classList.contains('active')) {
+        topButton.classList.add('active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setTimeout(() => {
+          topButton.classList.remove('active');
+        }, 500);
+      }
+    });
+    topBtn.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        topBtn.click();
+      }
+    });
+    document.addEventListener('click', function (event) {
+      if (!qrButton.contains(event.target) && !wechatQrContainer.contains(event.target)) {
+        hideQr();
+      }
+      if (!topButton.contains(event.target)) {
+        topButton.classList.remove('active');
+      }
+    });
+  })();
+  </script>
+   <script src="js/check.js" defer></script>
+</body>
+</html>

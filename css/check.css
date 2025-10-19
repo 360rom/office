@@ -1,0 +1,305 @@
+/* 滑动验证样式优化 */
+.verify-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.verify-container {
+  width: 100%;
+  max-width: 380px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.verify-container.active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.verify-header {
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.verify-header h3 {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+.verify-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #999;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.verify-close:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.verify-content {
+  padding: 20px;
+}
+
+.puzzle-container {
+  width: 100%;
+}
+
+.puzzle-image {
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%; /* 16:9 比例 */
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  background-color: #f5f5f5;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ddd' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+#puzzle-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#puzzle-img.loaded {
+  opacity: 1;
+}
+
+.puzzle-piece {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 2px solid rgba(255,255,255,0.9);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+  cursor: grab;
+  top: 0;
+  left: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: 3;
+  border-radius: 6px;
+  transition: transform 0.18s ease, left 0.12s ease, box-shadow 0.18s;
+}
+
+/* 拼图块形状优化 */
+.puzzle-piece::before,
+.puzzle-piece::after,
+.puzzle-gap::before,
+.puzzle-gap::after {
+  content: '';
+  position: absolute;
+  background-color: #fff;
+}
+
+.puzzle-piece::before,
+.puzzle-gap::before {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  top: 18px;
+  right: -7px;
+}
+
+.puzzle-piece::after,
+.puzzle-gap::after {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  bottom: 18px;
+  left: -7px;
+}
+
+.refresh-puzzle {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.9);
+  border: none;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  z-index: 3;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.refresh-puzzle:hover {
+  background-color: #fff;
+  color: #165DFF;
+  transform: rotate(180deg);
+}
+
+.slider-container {
+  margin-top: 20px;
+}
+
+/* 修改：滑轨填充由 CSS 变量控制，便于 JS 动态更新 */
+.slider-track {
+  width: 100%;
+  height: 42px;
+  background-color: #f5f5f5;
+  border-radius: 21px;
+  position: relative;
+  overflow: hidden;
+  --fill-width: 0px; /* 新增变量 */
+}
+
+/* 使用变量绘制填充 */
+.slider-track::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--fill-width, 0px);
+  background-color: rgba(22, 93, 255, 0.12);
+  transition: width 0.08s linear;
+  z-index: 1;
+}
+
+/* 改动：将验证提示放置在滑轨内部居中显示，且不干扰滑块交互（pointer-events: none） */
+.verify-message {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* 居中显示在滑轨中间 */
+  margin: 0;
+  font-size: 14px;
+  color: #4E5969;
+  z-index: 0; /* 低于滑块 (z-index:2) 但高于背景填充 (::after z-index:1) */
+  pointer-events: none; /* 不阻碍滑块的拖动事件 */
+  user-select: none;
+  transition: color 0.18s ease;
+}
+
+.slider {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  background-color: #fff;
+  border: 1px solid #e6e6e6;
+  border-radius: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(22,93,255,0.08);
+  transition: transform 0.18s cubic-bezier(0.4,0,0.2,1), box-shadow 0.18s;
+  z-index: 2;
+  top: -1px;
+  left: -1px;
+}
+
+/* 鼠标或触摸拖动时稍微上移，产生突起效果 */
+.slider.dragging {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 10px 22px rgba(22,93,255,0.18);
+}
+
+/* 成功状态：变色并旋转图标为确认感 */
+.slider.success {
+  background-color: #165DFF;
+  border-color: rgba(0,0,0,0.05);
+  box-shadow: 0 12px 30px rgba(22,93,255,0.22);
+}
+
+.slider.success i {
+  color: #fff;
+  transform: rotate(180deg);
+}
+
+/* 拼图缺口（凹陷）视觉增强：内阴影与边缘高亮 */
+.puzzle-gap {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0.06);
+  z-index: 1;
+  border-radius: 6px;
+  box-shadow: inset 0 6px 10px rgba(0,0,0,0.12), 0 1px 0 rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* 加载动画 */
+.loading-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 4;
+  transition: opacity 0.3s ease-out;
+}
+
+.loading-spinner {
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(22, 93, 255, 0.2);
+  border-radius: 50%;
+  border-top-color: #165DFF;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 响应式调整 */
+@media (max-width: 400px) {
+  .puzzle-piece, .puzzle-gap {
+    width: 45px;
+    height: 45px;
+  }
+  
+  .slider {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .verify-content {
+    padding: 15px;
+  }
+}
